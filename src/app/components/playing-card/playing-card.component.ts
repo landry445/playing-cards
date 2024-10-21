@@ -1,4 +1,4 @@
-import { Component, input, Input, InputSignal } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { Monster } from '../../models/monster.model';
 @Component({
   selector: 'app-playing-card',
@@ -19,3 +19,4 @@ export class PlayingCardComponent {
 ) ;
 
 }
+ 
