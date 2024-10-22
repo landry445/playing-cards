@@ -1,5 +1,6 @@
-import { Component, input, InputSignal } from '@angular/core';
+import { Component, computed, input} from '@angular/core';
 import { Monster } from '../../models/monster.model';
+import { MonsterTypeProperties } from '../../utils/monster.utils';
 @Component({
   selector: 'app-playing-card',
   standalone: true,
@@ -9,14 +10,12 @@ import { Monster } from '../../models/monster.model';
 })
 export class PlayingCardComponent {
 
-  monster: InputSignal<Monster> = input(new Monster(), {
-    alias: "my-monster",
-    transform: (value: Monster) => {
-      value.hp = value.hp / 2;
-      return value
-    }
-  }
-) ;
-
+  monster = input (new Monster());
+  monsterTypeIcon = computed(() => {
+    return MonsterTypeProperties[this.monster().type].imageUrl
+  });
+  backgroundColor = computed(() => {
+    return MonsterTypeProperties[this.monster().type].color
+  });
 }
  
