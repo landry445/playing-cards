@@ -1,14 +1,15 @@
 <app-search-bar [(search)]="search"></app-search-bar>
 <div id="card-list">
-  @for (monster of filteredMonsters(); track monster.name;) {
-    <app-playing-card [monster]="monster"/>
-}   @empty {<div class="centered">No monsters found !</div>}
-</div> 
-@if (filteredMonsters().length > 0) {
-<div class="centered">Found {{filteredMonsters().length}} monsters !</div>
-}
+  <div *ngFor="let monster of filteredMonsters(); trackBy: trackByMonster">
+    <app-playing-card [monster]="monster" (click)="openMonster(monster)"></app-playing-card>
+  </div>
+  <div *ngIf="filteredMonsters().length === 0" class="centered">No monsters found!</div>
+</div>
+<div *ngIf="filteredMonsters().length > 0" class="centered">
+  Found {{ filteredMonsters().length }} monsters!
+</div>
 <div class="centered">
-  <button (click)="addMonster()">Add Generic Monster</button><br>
+  <button (click)="addMonster()">Add Monster</button><br>
 </div>
 
 

@@ -10,7 +10,7 @@ export class Monster {
     figureCaption: string = "N°001 Monster"
 
     attackName: string = "Geo Impact";
-    attackStrenght: number = 10;
+    attackStrength: number = 10;
     attackDescription: string = "this is a long description..."
 
     copy(): Monster {
