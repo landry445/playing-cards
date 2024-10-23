@@ -2,6 +2,7 @@ import { MonsterType } from "../utils/monster.utils";
 
 export class Monster {
 
+    id: number = -1;
     name: string = "Monster";
     image: string = "assets/img/monster.png";
     type: MonsterType = MonsterType.ELECTRIC;
@@ -12,4 +13,7 @@ export class Monster {
     attackStrenght: number = 10;
     attackDescription: string = "this is a long description..."
 
+    copy(): Monster {
+        return Object.assign(new Monster(), this);
+    }
 }
